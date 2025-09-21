@@ -1,1 +1,10 @@
-# DATABASE-DESIGN-WEEK-8-FINAL-ASSIGNMENT
+Clinic Booking System Database
+Overview
+This repository contains the SQL schema for a simple relational database designed to manage a clinic's booking system. The database is structured to handle information about patients, doctors, appointments, medical records, and prescriptions.
+The schema is implemented in a single SQL file, clinic_booking_system.sql, which can be executed to create all the necessary tables, relationships, and constraints.
+Database SchemaThe database consists of the following tables:Patients: Stores personal details for all patients, including a unique ID, contact information, and demographic data.Doctors: Stores information about the doctors working at the clinic, including their specialty and contact details.Appointments: Manages the schedule by linking patients to specific doctors for a particular date and time. This table handles the core booking functionality and tracks the status of each appointment.MedicalRecords: Contains the medical history and data for each patient.
+It maintains a one-to-one relationship with the Patients table, ensuring each patient has exactly one medical record.Prescriptions: Tracks prescriptions given by doctors to patients. 
+This table models a many-to-many relationship between doctors and patients, allowing a doctor to prescribe to multiple patients and a patient to receive prescriptions from multiple doctors.Relationships and ConstraintsThe database tables are interconnected using foreign keys to maintain data integrity:An appointment belongs to one patient and one doctor.A medical record is uniquely tied to one patient.
+A prescription links a doctor to a patient.The ON DELETE CASCADE constraint is used for patient_id and doctor_id in the Appointments and Prescriptions tables.
+This means that if a patient or doctor is deleted from the database, all associated appointments and prescriptions will also be automatically deleted to prevent orphaned records.Getting StartedTo set up the database, simply execute the clinic_booking_system.sql script in your MySQL environment.
+This will create the database ClinicBookingDB and all the tables within it.
